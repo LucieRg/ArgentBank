@@ -1,5 +1,18 @@
 import React from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import Form from "../components/Form";
 
-export default function Login() {
-  return <div>Login</div>;
+function Login() {
+  return (
+    <div className="Page-bg">
+      <Nav />
+      <main className="main bg-dark">
+        <Form />
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
+export default Login;

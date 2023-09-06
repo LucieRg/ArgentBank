@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function () {
+export default function Hero() {
   return (
     <div className="hero">
       <section className="hero-content">
