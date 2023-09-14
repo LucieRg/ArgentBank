@@ -58,15 +58,32 @@ body {
 }
 
 .main-nav-item {
+  display: flex;
   text-decoration: none;
   margin-right: 0.5rem;
 }
 
-.main-nav-item:hover {
+.main-nav-item-underline:hover {
   text-decoration: underline;
+}
+.main-nav-item-underline{
+  text-decoration: none;
+  cursor: pointer;
+}
+.main-nav-item-underline i{
+  margin-right: 0.5rem;
+  
 }
 .main-nav-item i {
   margin-right: 0.5rem;
+}
+.user-info  {
+  margin-right: 15px;
+   text-decoration: none;
+ 
+}
+.user-info:hover {
+  text-decoration: none;
 }
 
 .main-nav-logo {
@@ -176,14 +193,22 @@ body {
 
 .sign-in-content {
   box-sizing: border-box;
+  color: black;
   background-color: white;
-  width: 300px;
+  width: 350px;
   margin: 0 auto;
   margin-top: 5rem;
   margin-bottom: 5rem;
   padding: 3rem;
 }
+.form-actions{
+  display: flex;
+  gap: 20px;
+}
 
+.gray {
+  background-color: rgba(165, 157, 157, 0.469);
+}
 .sign-in-icon {
   font-size: 1.5rem;
 }

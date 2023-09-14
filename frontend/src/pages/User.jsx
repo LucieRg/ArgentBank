@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Account from "../components/Account";
+import { useDispatch } from "react-redux";
+import { getUserInfoAsync } from "../../redux/userActions";
+
 
 export default function User() {
+const dispatch = useDispatch()
+  useEffect (()=>{
+
+    dispatch (getUserInfoAsync())
+  })
   return (
     <div className="Page-bg">
       <Nav />

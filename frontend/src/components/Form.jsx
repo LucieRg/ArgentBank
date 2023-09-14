@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAsync } from "../../redux/userActions";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const dispatch = useDispatch();
-
+ const navigate = useNavigate();
   // Accédez à la propriété "user" et "error" depuis le state "user"
   const userState = useSelector((state) => state.user);
-  const { user, error } = userState;
+  const isAuthenticated = useSelector((state)=> state.user.isAuthenticated);
+  const {error } = userState;
 
-  // Accédez à la propriété "loading" depuis le state "user"
-  const { loading } = userState;
+
 
   const [formData, setFormData] = useState({ email: "", password: "" });
 
@@ -18,8 +19,16 @@ export default function Form() {
     e.preventDefault();
 
     // Déclenche l'action asynchrone pour la connexion avec les données du formulaire
-    dispatch(loginUserAsync(formData));
-  };
+    dispatch(loginUserAsync(formData))
+  }; 
+  useEffect(() => {
+    // Utilisez un effet pour déclencher la redirection après la connexion réussie
+    if (isAuthenticated) {
+      navigate("/user");
+    
+    }
+  }, [ isAuthenticated]);
+
 
   return (
     <section className="sign-in-content">
@@ -57,9 +66,9 @@ export default function Form() {
       </form>
 
       {/* Affichez les messages de connexion en fonction de l'état */}
-      {loading && <p>Logging in...</p>}
+     
       {error && <p>Error: {error}</p>}
-      {user && <p>Logged in successfully!</p>}
+      
     </section>
   );
 }
