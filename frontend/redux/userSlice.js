@@ -4,9 +4,7 @@ import { loginUserSuccess, loginUserFailure, logoutUser, getUserInfo, putUserNam
 const initialState = {
   user: {},
   error: null,
-  isAuthenticated: {
-    
-  }
+  isAuthenticated: false,
 };
 
 const userSlice = createSlice({
