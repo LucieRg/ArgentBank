@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUserAsync } from "../../redux/userActions";
+import { loginUserAsync } from "../../redux/actions/authActions";
 import { useNavigate } from "react-router-dom";
 
 export default function Form() {
@@ -27,6 +27,7 @@ export default function Form() {
       navigate("/user");
     
     }
+    
   }, [ isAuthenticated]);
 
 

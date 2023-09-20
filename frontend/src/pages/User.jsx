@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Account from "../components/Account";
 import { useDispatch } from "react-redux";
-import { getUserInfoAsync } from "../../redux/userActions";
+import { getUserInfoAsync } from "../../redux/actions/userActions";
 
 
 export default function User() {

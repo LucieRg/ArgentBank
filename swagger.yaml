@@ -156,6 +156,8 @@ definitions:
     properties:
       userName:
         type: string
+        
+//Ajout des routes futures
 
 swagger: '2.0'
 info:

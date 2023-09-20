@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { putUsernNameAsync } from "../../redux/userActions";
+import { putUsernNameAsync } from "../../redux/actions/userActions";
 
 export default function EditUserInfo({ user, onCancel }) {
   const dispatch = useDispatch();

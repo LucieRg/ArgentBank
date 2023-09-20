@@ -79,8 +79,7 @@ body {
 }
 .user-info  {
   margin-right: 15px;
-   text-decoration: none;
- 
+ color: black;
 }
 .user-info:hover {
   text-decoration: none;
