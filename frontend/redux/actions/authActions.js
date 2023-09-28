@@ -24,6 +24,7 @@ export const loginUserAsync = (userData) => {
       } catch (error) {
         // En cas d'erreur, dispatch une action d'échec avec le message d'erreur
         dispatch(loginUserFailure(error.message));
+        console.log(error.response)
       }
     };
   };

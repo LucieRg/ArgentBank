@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { loginUserSuccess, loginUserFailure, logoutUser } from "../actions/authActions";
 
 const initialState = {
-    user: {},
     error: null,
     isAuthenticated: false,
 };
@@ -16,7 +15,7 @@ const authSlice = createSlice({
     extraReducers: (builder) => {
       builder
         .addCase(loginUserSuccess, (state, action) => {
-          state.user = action.payload;
+        //  state.user = action.payload;
           state.error = null;
           state.isAuthenticated = true
         })

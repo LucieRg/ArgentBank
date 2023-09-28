@@ -7,12 +7,13 @@ export const getUserInfo = createAction("user/profile")
 export const putUserName = createAction ("user/username")
 
 
-export const getUserInfoAsync = (userData) => {
-  return async (dispatch) => {
+export const getUserInfoAsync = () => {
+  
+  return async (dispatch, getState) => {
     try {
       const apiURL ="http://localhost:3001/api/v1/user/profile";
       // Effectue l'appel API pour la connexion
-      const response = await Axios.post(apiURL,userData, {
+      const response = await Axios.post(apiURL,{}, {
       headers : {
         Authorization : "Bearer " + localStorage.getItem("token")
       }
@@ -20,7 +21,6 @@ export const getUserInfoAsync = (userData) => {
 
       
       const user = response.data.body;
-      console.log('API Response:', user);
       // Dispatch une action de réussite avec les données de l'utilisateur connecté
       dispatch(getUserInfo(user));
       
@@ -38,8 +38,6 @@ export const putUsernNameAsync = (userData) => {
         Authorization : "Bearer " + localStorage.getItem("token")
       }
       });
-      console.log("Request Data:", userData);
-      console.log("API Response:", response.data);
       const user = response.data.body;
       // Dispatch une action de réussite avec les données de l'utilisateur connecté
       dispatch(putUserName(user));

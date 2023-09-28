@@ -5,9 +5,9 @@ import { putUsernNameAsync } from "../../redux/actions/userActions";
 export default function EditUserInfo({ user, onCancel }) {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    userName: user.userName || "", 
-    firstName: user.firstName,
-    lastName: user.lastName,
+    userName: user?.userName || "", 
+    firstName: user?.firstName,
+    lastName: user?.lastName,
   });
 
   const handleInputChange = (e) => {

@@ -4,7 +4,6 @@ import EditUserInfo from "./EditUserInfo";
 
 export default function Header() {
   const userState = useSelector((state) => state.user);
-  const user = userState?.user;
   const [editing, setEditing] = useState(false);
 
   const handleEditClick = () => {
@@ -18,11 +17,11 @@ export default function Header() {
   return (
     <div className="header">
       {editing ? (
-        <EditUserInfo user={user} onCancel={handleCancel} />
+        <EditUserInfo user={userState} onCancel={handleCancel} />
       ) : (
         <>
           <h1>
-            Welcome Back <br /> {user.firstName} {user.userName}
+            Welcome Back <br /> {userState.firstName} {userState.userName}
           </h1>
           <button className="edit-button" onClick={handleEditClick}>
             Edit Name

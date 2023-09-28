@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getUserInfo, putUserName } from "../actions/userActions";
 
 const initialState = {
-  user: {},
   error: null,
   isAuthenticated: false,
 };
@@ -15,13 +14,17 @@ const userSlice = createSlice({
     builder
 
       .addCase(getUserInfo, (state, action) => {
-        state.user.firstName=action.payload.firstName; 
+        state.firstName=action.payload.firstName; 
+        state.lastName=action.payload.lastName; 
+        state.userName=action.payload.userName; 
         state.error = null; 
         state.isAuthenticated = true
       })
 
       .addCase(putUserName, (state, action)=> {
-        state.user=action.payload;
+        state.firstName=action.payload.firstName; 
+        state.lastName=action.payload.lastName; 
+        state.userName=action.payload.userName;
         state.error=null;
         state.isAuthenticated = true
 

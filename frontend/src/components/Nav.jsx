@@ -6,13 +6,12 @@ import Logo from "../../public/img/argentBankLogo.png";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const userState = useSelector((state) => state.user);
-  const user = userState?.user
-  console.log('User State:', userState);
-console.log('User:', user);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const userFirstName = useSelector((state) => state.user?.firstName);
+
   const navigate = useNavigate(); 
 
-  const userFirstName = user?.body?.firstName;
+
 
 
   // Fonction pour gérer la déconnexion
@@ -36,7 +35,7 @@ console.log('User:', user);
         <h1 className="sr-only">Argent Bank</h1>
       </NavLink>
       <div>
-        {userState.isAuthenticated ? (
+        {isAuthenticated ? (
           <div  className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             <span className="user-info">{userFirstName}</span>

@@ -8,7 +8,7 @@ export default function Form() {
  const navigate = useNavigate();
   // Accédez à la propriété "user" et "error" depuis le state "user"
   const userState = useSelector((state) => state.user);
-  const isAuthenticated = useSelector((state)=> state.user.isAuthenticated);
+  const isAuthenticated = useSelector((state)=> state.auth.isAuthenticated);
   const {error } = userState;
 
 
