@@ -1,72 +1,31 @@
-# Argent Bank API
+# ARGENTBANK
 
-This codebase contains the code needed to run the backend for Argent Bank.
+## Description
 
-## Getting Started
+L'objectif était d'implémentez le front-end d'une application bancaire avec React
 
-### Prerequisites
+## Compétences évaluées
 
-Argent Bank uses the following tech stack:
+Ce projet a permis d'évaluer les compétences suivantes :
 
-- [Node.js v12](https://nodejs.org/en/)
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+- Créez une application React complète
+- Afficher les données du back end sur l'interface via des appels API
+- Configurer des routes API pour la communication client / serveur
+- Implémenter la gestion des données avec Redux pour assurer le fonctionnement du front
 
-Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
+## Brief de mission
 
-```bash
-# Check Node.js version
-node --version
+> Créer l’application web complète et responsive avec React. Comme point de départ, nous vous avons fourni le HTML statique et le CSS pour la page d'accueil, la page de connexion et la page de profil. Utiliser Redux pour gérer le state de l'ensemble de l'application. Ce que doit faire l’application (voir les détails pour chacune des fonctionnalités sur nos modèles de GitHub Issues) :
+L'utilisateur peut visiter la page d'accueil.
+L'utilisateur peut se connecter au système.
+L'utilisateur peut se déconnecter du système.
+L'utilisateur ne peut voir les informations relatives à son propre profil qu'après s'être connecté avec succès.
+L’utilisateur ne peut pas modifier son nom ni son prénom, mais il peut modifier son pseudo.
+Nos ingénieurs back-end ont déjà créé toutes les routes API dont vous avez besoin. Vous trouverez toute la documentation Swagger à l'intérieur du repo.
 
-# Check Mongo version
-mongo --version
-```
+![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 
-### Instructions
-
-1. Fork this repo
-1. Clone the repo onto your computer
-1. Open a terminal window in the cloned project
-1. Run the following commands:
-
-```bash
-# Install dependencies
-npm install
-
-# Start local dev server
-npm run dev:server
-
-# Populate database with two users
-npm run populate-db
-```
-
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
-
-## Populated Database Data
-
-Once you run the `populate-db` script, you should have two users in your database:
-
-### Tony Stark
-
-- First Name: `Tony`
-- Last Name: `Stark`
-- Email: `tony@stark.com`
-- Password: `password123`
-
-### Steve Rogers
-
-- First Name: `Steve`,
-- Last Name: `Rogers`,
-- Email: `steve@rogers.com`,
-- Password: `password456`
-
-## API Documentation
-
-To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
-
-## Design Assets
-
-Static HTML and CSS has been created for most of the site and is located in: `/designs`.
-
-For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
-
-And for the API model that you will be proposing for transactitons, the wireframe can be found in `/designs/wireframes/transactions.png`.
