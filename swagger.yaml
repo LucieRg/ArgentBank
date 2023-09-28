@@ -92,14 +92,14 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successfully
+          description: User profile updated successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /accounts:
+  /bank/accounts:
     get:
       security:
         - Bearer: []
@@ -109,7 +109,7 @@ paths:
       description: Get all accounts available
       responses:
         '200':
-          description: Login Successfully
+          description: Accounts retrieved successfully
           schema:
             $ref: '#/definitions/Accounts'
         '400':
@@ -118,7 +118,7 @@ paths:
           description: Unauthorized
         '500':
           description: Internal Server Error
-  /accounts/{account_id}/transactions:
+  /bank/accounts/{account_id}/transactions:
     get:
       security:
         - Bearer: []
@@ -136,7 +136,7 @@ paths:
         - application/json
       responses:
         '200':
-          description: Successfully get the account
+          description: Account transactions retrieved successfully
           schema:
             type: array
             items:
@@ -157,7 +157,7 @@ paths:
       description: Update a transaction note and category using its ID.
       parameters:
         - in: path
-          name: updateTransaction_id
+          name: transaction_id
           description: Transaction ID
           required: true
           type: string
@@ -173,7 +173,7 @@ paths:
         '200':
           description: Transaction updated successfully
           schema:
-            $ref: '#/definitions/UpdateTransaction'
+            $ref: '#/definitions/Transaction'
         '404':
           description: Not found
         '401':
