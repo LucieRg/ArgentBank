@@ -243,7 +243,7 @@ definitions:
         type: string
         description: Account ID
       availableBalance:
-        type: string
+        type: number
         description: Available balance on the account
   Transaction:
     properties:
@@ -257,7 +257,7 @@ definitions:
         type: number
         description: Transaction amount
       balance:
-        type: string
+        type: number
         description: Balance
       transactionType:
         type: string
