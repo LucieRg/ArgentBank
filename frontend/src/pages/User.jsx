@@ -3,16 +3,24 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Account from "../components/Account";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserInfoAsync } from "../../redux/actions/userActions";
+import { useNavigate } from "react-router-dom";
 
 export default function User() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
+    // Appel à l'action asynchrone pour obtenir les informations de l'utilisateur
     dispatch(getUserInfoAsync());
-  }, []);
 
+    // Vérification de l'authentification après que les données de l'utilisateur ont été chargées
+    if (!isAuthenticated) {
+      navigate("/login"); // Redirigez vers la page de connexion si l'utilisateur n'est pas authentifié
+    }
+  }, [dispatch, navigate, isAuthenticated]);
 
   const accountsData = [
     {
@@ -30,7 +38,6 @@ export default function User() {
       amount: "$184.30",
       description: "Current Balance",
     },
-    
   ];
 
   return (
@@ -42,7 +49,7 @@ export default function User() {
 
         {accountsData.map((account, index) => (
           <Account
-            key={index} 
+            key={index}
             title={account.title}
             amount={account.amount}
             description={account.description}

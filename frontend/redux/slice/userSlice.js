@@ -4,6 +4,7 @@ import { getUserInfo, putUserName } from "../actions/userActions";
 const initialState = {
   error: null,
   isAuthenticated: false,
+
 };
 
 const userSlice = createSlice({
@@ -27,7 +28,6 @@ const userSlice = createSlice({
         state.userName=action.payload.userName;
         state.error=null;
         state.isAuthenticated = true
-
       })
      
   },

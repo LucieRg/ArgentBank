@@ -7,7 +7,7 @@ import Logo from "../../public/img/argentBankLogo.png";
 const Nav = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const userFirstName = useSelector((state) => state.user?.firstName);
+  const userFirstName = useSelector((state) => state.user?.userName);
 
   const navigate = useNavigate(); 
 
@@ -38,7 +38,7 @@ const Nav = () => {
         {isAuthenticated ? (
           <div  className="main-nav-item">
             <i className="fa fa-user-circle"></i>
-            <span className="user-info">{userFirstName}</span>
+            < NavLink className="user-info" to ="/user">{userFirstName}</ NavLink>
             <div className="main-nav-item-underline">
            <a onClick={handleLogout}>
            <i className="fa fa-sign-out"></i> Sign Out </a>
