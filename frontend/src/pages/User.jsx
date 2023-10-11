@@ -10,11 +10,12 @@ import { useNavigate } from "react-router-dom";
 export default function User() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.auth.token);
+  const authToken = useSelector ((state) => state.auth.token)
 
   useEffect(() => {
     // Appel à l'action asynchrone pour obtenir les informations de l'utilisateur
-    dispatch(getUserInfoAsync());
+    dispatch(getUserInfoAsync(authToken));
 
     // Vérification de l'authentification après que les données de l'utilisateur ont été chargées
     if (!isAuthenticated) {

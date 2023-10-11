@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUserAsync} from "../../redux/actions/authActions";
 import { NavLink, useNavigate } from "react-router-dom"; 
-import Logo from "../../public/img/argentBankLogo.png";
+import Logo from "../../public/img/argentBankLogo.webp";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -10,9 +10,6 @@ const Nav = () => {
   const userFirstName = useSelector((state) => state.user?.userName);
 
   const navigate = useNavigate(); 
-
-
-
 
   // Fonction pour gérer la déconnexion
   const handleLogout = () => {
@@ -38,7 +35,7 @@ const Nav = () => {
         {isAuthenticated ? (
           <div  className="main-nav-item">
             <i className="fa fa-user-circle"></i>
-            < NavLink className="user-info" to ="/user">{userFirstName}</ NavLink>
+            <NavLink className="user-info">{userFirstName}</NavLink>
             <div className="main-nav-item-underline">
            <a onClick={handleLogout}>
            <i className="fa fa-sign-out"></i> Sign Out </a>

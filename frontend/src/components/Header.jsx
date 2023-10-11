@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import EditUserInfo from "./EditUserInfo";
 
 export default function Header() {
@@ -13,6 +13,7 @@ export default function Header() {
   const handleCancel = () => {
     setEditing(false);
   };
+
 
   return (
     <div className="header">

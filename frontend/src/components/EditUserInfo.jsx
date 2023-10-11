@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { putUsernNameAsync } from "../../redux/actions/userActions";
 
 export default function EditUserInfo({ user, onCancel }) {
   const dispatch = useDispatch();
+  const authToken = useSelector ((state)=> state.auth.token)
   const [formData, setFormData] = useState({
     userName: user?.userName || "", 
-    firstName: user?.firstName,
-    lastName: user?.lastName,
+    firstName: user?.firstName || "",
+    lastName: user?.lastName || "",
   });
 
   const handleInputChange = (e) => {
@@ -21,7 +22,7 @@ export default function EditUserInfo({ user, onCancel }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Envoyez les données modifiées à l'API et mettez à jour l'utilisateur
-    dispatch(putUsernNameAsync(formData));
+    dispatch(putUsernNameAsync(formData, authToken));
     onCancel();
   };
 

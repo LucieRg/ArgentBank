@@ -5,13 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const dispatch = useDispatch();
- const navigate = useNavigate();
-  // Accédez à la propriété "user" et "error" depuis le state "user"
-  const userState = useSelector((state) => state.user);
-  const isAuthenticated = useSelector((state)=> state.auth.isAuthenticated);
-  const {error } = userState;
+  const navigate = useNavigate();
 
-
+  const authState = useSelector((state) => state.auth);
+  const isAuthenticated = authState.isAuthenticated;
+  const { error } = authState;
 
   const [formData, setFormData] = useState({ email: "", password: "" });
 
@@ -19,17 +17,14 @@ export default function Form() {
     e.preventDefault();
 
     // Déclenche l'action asynchrone pour la connexion avec les données du formulaire
-    dispatch(loginUserAsync(formData))
-  }; 
+    dispatch(loginUserAsync(formData));
+  }
+
   useEffect(() => {
-    // Utilisez un effet pour déclencher la redirection après la connexion réussie
     if (isAuthenticated) {
       navigate("/user");
-    
     }
-    
-  }, [ isAuthenticated]);
-
+  }, [isAuthenticated]);
 
   return (
     <section className="sign-in-content">
@@ -51,7 +46,7 @@ export default function Form() {
         <div className="input-wrapper">
           <label htmlFor="password"> Password</label>
           <input
-            type="password" // Change le type à "password"
+            type="password"
             id="password"
             value={formData.password}
             onChange={(e) =>
@@ -66,10 +61,7 @@ export default function Form() {
         <button className="sign-in-button">Sign In</button>
       </form>
 
-      {/* Affichez les messages de connexion en fonction de l'état */}
-     
       {error && <p>Error: {error}</p>}
-      
     </section>
   );
 }

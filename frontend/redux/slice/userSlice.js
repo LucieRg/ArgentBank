@@ -3,8 +3,9 @@ import { getUserInfo, putUserName } from "../actions/userActions";
 
 const initialState = {
   error: null,
-  isAuthenticated: false,
-
+  firstName: null,
+  lastName: null,
+  userName:null,
 };
 
 const userSlice = createSlice({
@@ -16,18 +17,18 @@ const userSlice = createSlice({
 
       .addCase(getUserInfo, (state, action) => {
         state.firstName=action.payload.firstName; 
-        state.lastName=action.payload.lastName; 
+        state.lastName=action.payload.lastNAme; 
         state.userName=action.payload.userName; 
         state.error = null; 
-        state.isAuthenticated = true
+
       })
 
       .addCase(putUserName, (state, action)=> {
         state.firstName=action.payload.firstName; 
-        state.lastName=action.payload.lastName; 
+        state.lastName=action.payload.lastNAme; 
         state.userName=action.payload.userName;
         state.error=null;
-        state.isAuthenticated = true
+
       })
      
   },
