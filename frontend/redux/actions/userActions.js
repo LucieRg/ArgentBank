@@ -6,10 +6,8 @@ import { createAction } from "@reduxjs/toolkit";
 export const getUserInfo = createAction("user/profile")
 export const putUserName = createAction ("user/username")
 
-let authToken = null;
 
 export const getUserInfoAsync = (authToken) => {
-  console.log(authToken);
 
   return async (dispatch) => {
     try {
